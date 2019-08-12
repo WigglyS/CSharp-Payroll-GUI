@@ -7,8 +7,12 @@ using PayRoll_GUI.ClassScripts;
 
 namespace PayRoll_GUI
 {
+    
+
     static class Program
     {
+        public static List<Employee> PayRoll = new List<Employee>();
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -19,7 +23,18 @@ namespace PayRoll_GUI
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 
-            
+           
+        }
+
+        public static float PayEmployees()
+        {
+            float TotalPaid = 0;
+            foreach (Employee employee in PayRoll)
+            {
+                TotalPaid += employee.Pay();
+            }
+            return TotalPaid;
         }
     }
+
 }
